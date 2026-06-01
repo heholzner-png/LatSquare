@@ -1,0 +1,14 @@
+Package: LatSquare
+Title: Analysis of Latin Square Designs
+Version: 0.1.0
+Authors@R: person(
+  given = "Heinrich",
+  family = "Holzner",
+  role = c("aut", "cre"),
+  email = "heholzner@gmail.com")
+Description: Provides ANOVA and LSD calculations for Latin square experimental designs.
+Depends: R (>= 4.0)
+Imports: openxlsx
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
