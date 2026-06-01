@@ -1,14 +1,14 @@
 Package: LatSquare
 Title: Analysis of Latin Square Designs
-Version: 0.2.0
+Version: 0.3.1
 Authors@R: person(
   given = "Heinrich",
   family = "Holzner",
   role = c("aut", "cre"),
   email = "heholzner@gmail.com")
-Description: Provides ANOVA and LSD calculations for Latin square experimental designs.
+Description: Provides functions for the analysis of Latin square experimental designs, including analysis of variance (ANOVA), least significant difference (LSD) tests, and calculation of summary statistics.
 Depends: R (>= 4.0)
 Imports: openxlsx
 License: GPL-3
 Encoding: UTF-8
-LazyData: true
+Config/roxygen2/version: 8.0.0
