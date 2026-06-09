@@ -2,3 +2,5 @@
 
 export(LQuad)
 import(openxlsx)
+importFrom(stats,pf)
+importFrom(stats,qt)

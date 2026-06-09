@@ -1,12 +1,16 @@
 Package: LatSquare
 Title: Analysis of Latin Square Designs
-Version: 0.3.1
+Version: 0.3.2
 Authors@R: person(
   given = "Heinrich",
   family = "Holzner",
   role = c("aut", "cre"),
   email = "heholzner@gmail.com")
-Description: Provides functions for the analysis of Latin square experimental designs, including analysis of variance (ANOVA), least significant difference (LSD) tests, and calculation of summary statistics.
+Description: Provides functions for the analysis of Latin square experimental
+    designs, including analysis of variance (ANOVA), least significant
+    difference (LSD) tests, and calculation of summary statistics. The
+    implemented methods follow the approach described in Munzert (1992,
+    ISBN:3-489-53410-7) "Einführung in das pflanzenbauliche Versuchswesen".
 Depends: R (>= 4.0)
 Imports: openxlsx
 License: GPL-3

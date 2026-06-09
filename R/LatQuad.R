@@ -1,16 +1,38 @@
-#' Analyse eines lateinischen Quadrats
+#' Analysis of a Latin Square
 #'
-#' Führt eine ANOVA für ein lateinisches Quadrat durch und berechnet LSD sowie Mittelwerte.
+#' Performs ANOVA for a Latin square design and calculates
+#' LSD values and treatment means. The implemented methods follow
+#' the approach described in Munzert (1992, ISBN:3-489-53410-7)
+#' "Einführung in das pflanzenbauliche Versuchswesen".
 #'
-#' @param file_path Pfad zur Excel-Datei
-#' @param sheet_name Tabellenblatt
-#' @param block_col Spaltenname für Block
-#' @param column_col Spaltenname für Column
-#' @param treatment_col Spaltenname für Treatment
-#' @param response_cols Vektor mit Response-Spalten
+#' @param file_path Path to the Excel file
+#' @param sheet_name Sheet name
+#' @param block_col Column name for block factor
+#' @param column_col Column name for column factor
+#' @param treatment_col Column name for treatment factor
+#' @param response_cols Vector of response variable column names
 #'
-#' @return Liste mit ANOVA, LSD und Mittelwerten je Response
+#' @return A list containing ANOVA results, LSD values, and means
+#' for each response variable
+#'
+#' @importFrom stats pf qt
 #' @import openxlsx
+#'
+#' @examples
+#' # Example dataset from Munzert (1992), Table 4.9
+#' file <- system.file("extdata", "munzert_example_tab4_9.xlsx",
+#'                     package = "LatSquare")
+#'
+#' res <- LQuad(
+#'   file_path = file,
+#'   sheet_name = "Kartoffeln",
+#'   block_col = "Block",
+#'   column_col = "Saeule",
+#'   treatment_col = "VNr",
+#'   response_cols = c("ParzErtrag_in_kg")
+#' )
+#'
+#' res
 #' @export
 LQuad <- function(file_path, sheet_name, block_col, column_col, treatment_col, response_cols) {
   data <- openxlsx::read.xlsx(file_path, sheet = sheet_name)

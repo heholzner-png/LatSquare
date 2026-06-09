@@ -2,7 +2,7 @@
 % Please edit documentation in R/LatQuad.R
 \name{LQuad}
 \alias{LQuad}
-\title{Analyse eines lateinischen Quadrats}
+\title{Analysis of a Latin Square}
 \usage{
 LQuad(
   file_path,
@@ -14,21 +14,41 @@ LQuad(
 )
 }
 \arguments{
-\item{file_path}{Pfad zur Excel-Datei}
+\item{file_path}{Path to the Excel file}
 
-\item{sheet_name}{Tabellenblatt}
+\item{sheet_name}{Sheet name}
 
-\item{block_col}{Spaltenname für Block}
+\item{block_col}{Column name for block factor}
 
-\item{column_col}{Spaltenname für Column}
+\item{column_col}{Column name for column factor}
 
-\item{treatment_col}{Spaltenname für Treatment}
+\item{treatment_col}{Column name for treatment factor}
 
-\item{response_cols}{Vektor mit Response-Spalten}
+\item{response_cols}{Vector of response variable column names}
 }
 \value{
-Liste mit ANOVA, LSD und Mittelwerten je Response
+A list containing ANOVA results, LSD values, and means
+for each response variable
 }
 \description{
-Führt eine ANOVA für ein lateinisches Quadrat durch und berechnet LSD sowie Mittelwerte.
+Performs ANOVA for a Latin square design and calculates
+LSD values and treatment means. The implemented methods follow
+the approach described in Munzert (1992, ISBN:3-489-53410-7)
+"Einführung in das pflanzenbauliche Versuchswesen".
+}
+\examples{
+# Example dataset from Munzert (1992), Table 4.9
+file <- system.file("extdata", "munzert_example_tab4_9.xlsx",
+                    package = "LatSquare")
+
+res <- LQuad(
+  file_path = file,
+  sheet_name = "Kartoffeln",
+  block_col = "Block",
+  column_col = "Saeule",
+  treatment_col = "VNr",
+  response_cols = c("ParzErtrag_in_kg")
+)
+
+res
 }
